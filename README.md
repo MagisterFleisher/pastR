@@ -3,7 +3,7 @@ rStudio plugin: makes life easier and prettier with find and replace.  It's R, b
 
 Let's face it.  R looks ugly.  It hurts your eyes.  And, it could use a couple modern features:
 
-- replace %>& with \|>
+- replace %>% with \|>
 
 - replace the word "function" with /.
  
