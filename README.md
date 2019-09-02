@@ -6,9 +6,9 @@ rStudio plugin: makes life easier and prettier with find and replace.  It's R, b
 
 Let's face it.  R looks ugly.  It hurts your eyes.    Official R hasn't really changed in the last 20 years.  Some things need the tiniest changes.  It could use a couple modern features:
 Replace``` %>% ```with ```|>``` because it's easy to type, fast to type, and makes code beautiful.  Have you seen Elixer code?
-Replace ```function```with```.\```because it's easy for me to type.  It looks like the letter lambda backward.
+Replace ```function```with```/.```because it's easy for me to type.  With workman it's a two key roll.
 
-Code will look like this
+This is pure R.  It runs with those two changes.  Code will look like this
 
 ```
 library(data.table)
