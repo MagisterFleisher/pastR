@@ -11,21 +11,20 @@ Replace ```function```with```.\```because it's easy for me to type.  It looks li
 Code will look like this
 
 ```
-library(rstudioapi)
 library(data.table)
 
-
-xyData <- "/Lib/etc/why_is_there_data_here.csv"
+xyData <- 
+  "/Lib/etc/why_is_there_data_here.csv"
   |> fread |> clean
 
-
-coord <- headeData
-  |> transform1
-  |> sapply(/.(x, y, z) 
-     list(x,y, z), 
-     xyData[, 1], xyData[, 2], .)
-  |> transform1 |> transform2
-  |> as.Doc.Lo
+coord <- 
+  headeData
+    |> transform1
+    |> sapply(., /.(x, y, z),
+      transform2(
+      xyData[, 1], xyData[, 2], z))
+    |> transform3 |> transform3
+    |> as.Doc.Lo
 ```
  
 (It's mostly point-free.)
