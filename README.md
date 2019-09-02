@@ -17,34 +17,47 @@ Let's face it.  R looks ugly.  It hurts your eyes.  And, it could use a couple m
 That's not so hard.  Official R hasn't really changed in the last 20 years.  Some things need the tiniest changes.
 
 ## Goals
+
 In makes you stretch all over the keyboard.  Coding is so much faster if your hands don't have to leave the home row.  So no replacement for %in% with #in#
 
 Using the workman layout The home row has these accessable without moving ones hand:
 
 ]
+
 [
 
+
 }
+
 {
 
+
 <
+
 >
+
 /
+
 \
+
 |
 
 
 '
+
 "
+
 ~
 `
 , 
+
 .
 
 All the letters.  Numbers require moving ones hands.  So no numbers.
 
 
 ## token replacement so far:
+
 ./ because it's easy for me to type
 
 \|\> because it's easy to type, fast to type, and makes code beautiful.  Have you seen Elixer code?
