@@ -5,14 +5,9 @@ Let's face it.  R looks ugly.  It hurts your eyes.  And, it could use a couple m
 
 - Piping
 
---- Solution:
----- \|>
+--- Solution\: \|>
 
-- replace the word "function"
-
---- /.
-
----- because /. looks like the letter, lambda
+- replace the word "function" with \: /. because /. looks like the letter, lambda
  
 That's not so hard.  Official R hasn't really changed in the last 20 years.  Some things need the tiniest changes.
 
