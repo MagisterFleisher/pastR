@@ -45,7 +45,7 @@ All the letters.  Numbers require moving ones hands.  So no numbers.
 
 
 ## token replacement so far:
-.\ because it's easy for me to type
+./ because it's easy for me to type
 
 \|\> because it's easy to type, fast to type, and makes code beautiful.  Have you seen Elixer code?
 
@@ -55,3 +55,9 @@ All the letters.  Numbers require moving ones hands.  So no numbers.
 -- something to mean purrr:flatten
 -- something to mean %in%
 -- integrate the commonly used parts of the data.table package so it feels like R.
+
+
+## The name
+
+pastR sounds like the Albanian word for clean
+
