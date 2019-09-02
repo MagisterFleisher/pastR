@@ -3,11 +3,9 @@ rStudio plugin: makes life easier and prettier with find and replace.  It's R, b
 
 Let's face it.  R looks ugly.  It hurts your eyes.  And, it could use a couple modern features:
 
-- Piping
+- replace %>& with \|>
 
---- Solution\: \|>
-
-- replace the word "function" with \: /. because /. looks like the letter, lambda
+- replace the word "function" with /.
  
 That's not so hard.  Official R hasn't really changed in the last 20 years.  Some things need the tiniest changes.
 
@@ -53,7 +51,7 @@ All the letters.  Numbers require moving ones hands.  So no numbers.
 
 ## token replacement so far:
 
-./ because it's easy for me to type
+/. because it's easy for me to type.  It looks like the letter lambda.
 
 \|\> because it's easy to type, fast to type, and makes code beautiful.  Have you seen Elixer code?
 
