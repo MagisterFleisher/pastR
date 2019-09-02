@@ -60,8 +60,11 @@ All the letters.  Numbers require moving ones hands.  So no numbers.
 
 ## Some things to ponder
 
+
 -- something to mean purrr:flatten
+
 -- something to mean %in%
+
 -- integrate the commonly used parts of the data.table package so it feels like R.
 
 
