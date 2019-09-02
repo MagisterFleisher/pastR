@@ -19,11 +19,11 @@ xyData <- "/Lib/etc/why_is_there_data_here.csv"
   |> fread |> clean
 
 
-coord <- xyData
+coord <- headeData
   |> transform1
-  |> sapply(/.(x, y) 
-     list(x,y), 
-     xyData[, 1], xyData[, 2])
+  |> sapply(/.(x, y, z) 
+     list(x,y, z), 
+     xyData[, 1], xyData[, 2], .)
   |> transform1 |> transform2
   |> as.Doc.Lo
 ```
