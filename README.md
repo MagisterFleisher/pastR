@@ -32,10 +32,8 @@ Geocoding with 4 GB RAM
 In pastR:
 
 Mostly point-free
-
 ```
-xyData <- "/Lib/etc/why_is_there_data_here.csv"
-    |> read
+xyData <- "/Lib/etc/why_is_there_data_here.csv" |> read
 
 coord <- xyData |> geoCode
     |> transform1
@@ -49,13 +47,13 @@ With paranthesis
 ```
 xyData <- read("/Lib/etc/why_is_there_data_here.csv")
 
-coord <- xyData |> geoCode(.) 
+coord <- xyData 
+    |> geoCode(.) 
     |> transform1(.)
     |> apply( fn(x) v(x[, 1], x[, 2]), ., 'vector')
     |> transform3(.)
     |> transform3(.)
     |> as.Doc.Loc(.)
-
 ```
 Quiz: What data type is coord\[\["doc_loc"]]
 
