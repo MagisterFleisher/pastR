@@ -37,12 +37,10 @@ Mostly point-free
 xyData <- "/Lib/etc/why_is_there_data_here.csv"
     |> read
 
-coord <- xyData
-    |> geoCode
+coord <- xyData |> geoCode
     |> transform1
     |> apply( fn(x)  v(x[,1],x[,2]), ., 'vector')
-    |> transform3
-    |> transform3
+    |> transform3 |> transform3
     |> as.Doc.Loc
 ```
 
@@ -51,8 +49,7 @@ With paranthesis
 ```
 xyData <- read("/Lib/etc/why_is_there_data_here.csv")
 
-coord <- xyData
-    |> geoCode(.) 
+coord <- xyData |> geoCode(.) 
     |> transform1(.)
     |> apply( fn(x) v(x[, 1], x[, 2]), ., 'vector')
     |> transform3(.)
