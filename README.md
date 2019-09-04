@@ -1,24 +1,31 @@
 # pastR
 
 
-An language that's almost R.  It's R, but clean.
+An language that transpiles to R.
 --
 
 
 Let's face it.  R looks ugly.  It hurts your eyes.  Some features can be a bit verbose or overly confusing.  Official R hasn't really changed in the last 20 years.  Some things need the tiniest changes.  It could use a couple tweaks:
 
-
 1) piping
 2) shorten '```function```'
-3) combine all ```apply``` functions
-4) 'v()' for vector, not 'c()'
+3) combine all ```apply``` functions, don't get rid of the old ones.  
+4) 'v()' for vector, not 'c()'.  Don't get rid of 'c()'.
 5) transpile some statements to data.table syntax
+
+
+The only changes for the user will be easier to read code, faster to write code, code that makes more sense,  easier to remember base functions.
+
+
+None of the changes require the user to change how they code.  They don't have to learn a new language.
+
+
+This drasticly improves speed and reduces memory limitations.  Any existing R code can be converted to pastR.
 
 
 
 Examples
 ------------
-
 
 Geocoding with 4 GB RAM
 
@@ -33,13 +40,11 @@ xyData <- "/Lib/etc/why_is_there_data_here.csv"
 coord <- xyData
     |> geoCode
     |> transform1
-    |> apply( fn(x) v(x[, 1], x[, 2]), ., 'vector')
+    |> apply( fn(x)  v(x[,1],x[,2]), ., 'vector')
     |> transform3
     |> transform3
     |> as.Doc.Loc
 ```
-Quiz: What data type is coord\[\["doc_loc"]]
-
 
 With paranthesis
 
@@ -55,6 +60,8 @@ coord <- xyData
     |> as.Doc.Loc(.)
 
 ```
+Quiz: What data type is coord\[\["doc_loc"]]
+
 
 
 Currently:
@@ -84,17 +91,16 @@ Quiz: What data type is coord\[\["doc_loc"]]
 Reasoning
 --
 
-
 1)  Replace ```%>% ```with ```|>``` because it's easy to type, fast to type, and makes code beautiful.  Have you seen Elixer code?    The syntax has to change very little for those familiar with the ```%>%``` oporator from magrittr.  A couple quirks need to be fixed.  ```%>%``` only appends to the end of the statement.  ```|>``` should be able to work when placed at the beginning of the next line.  This requires only a simple change.
 
 
 2) Replace ```function([args]) { }``` with ```fn([args]) { }```, or something else simple, sweet, and obvious.  This requires basically nothing.  It's 1 - 1.  Requiring the evaluation syntax for anonomous functions, `([fn])`, adds an unnecessary level of specification.  Watch:
 
+-- M-Expression ```fn([arg]) (statements)``` == S-Expression ```(fn([args]), statement)```
 
-M-Expression ```fn([arg]) (statements)``` == S-Expression ```(fn([args]), statement)```
+-- There's no need for ```(fn([arg]) statements))``` because that's like writing ```((fun([args]) statements)))```.  Requiring another paranthesis for anonomous functions makes no sense. 
 
-
-There's no need for ```(fn([arg]) statements))``` because that's like writing ```((fun([args]) statements)))```.  Requiring another paranthesis for anonomous functions makes no sense.  When you don't want to evaluate, the R syntax is ```fn([args]) { statements}```. While we're at it, why not allow beta reduction syntax ```(fn statement)[args]```.  It's the logical heart beneath functional languages like R.
+-- When you don't want to evaluate, the R syntax is ```fn([args]) { statements}```. While we're at it, why not allow beta reduction syntax ```(fn statement)[args]```.  It's the logical heart beneath functional languages like R.
 
 
 3) ```[letter]apply``` must change.  Myriad varients of ```apply``` turn one of the best features of R into one of the most arcane.  ```apply``` fits perfectly into a vector language.  People with different programming backrounds and people learning R as a first language struggle with the idea of working with a bunch of things at the same time.  It makes sense if you say, "That is your bunch of values.  That is your function.  All you have to do is ```apply``` the function to all of the values."  R requires you specify you specify the output by choosing from a bunch of awkwardly named ```apply``` functions.  The 's' in ```sapply``` probably makes sense given the development of S, but what the hell does 's' have to do with vectors?!  Why not-- this may sound radical, the weak stomache among you can skip this section--- you specify the the type as arguments in the function.  Input type specification can be optional.  Put in a list and want a vector?  ```apply(fn, [list], 'vector')```.  While we're at it, ```mapply``` or ```Map```: choose one.  Why do ```sapply```, ```lapply```, and ```vapply``` exist as separate functions?  This is why arguments exist.  There's much more nonsense in the species of apply, but one more thing.  Why separate mapply from other apply functions?  Why can't all of them apply to as many arguments as long as the function has many arguments?
@@ -114,18 +120,22 @@ The big problem comes from data.table basically being a DSL that does what R doe
 
 
 
-
-
 Issues
 ----
 
 Other packages build off of ```%>%```.  future does this especially well.  This isn't a huge deal for the most part.  future's future notation becomes ```.|>```  The transpiler needs to recognize mods to ```%>%``` and transpile accordingly.
 
+
 pastR must run as a rStudio plugin.  No one will ever use it otherwise.
+
 
 It requires transpiling at runtime.  I has to work every time you hit enter in the REPL.
 
-- ```%>%``` slows down execution. It's not a compile-time macro. ```|>``` shouldn't slow down execution.
+
+```%>%``` slows down execution. It's not a compile-time macro. ```|>``` shouldn't slow down execution.
+
+
+The major challenge comes in adding the data.table back end.  Perhaps they can work with us.
 
 
 Restrictions
