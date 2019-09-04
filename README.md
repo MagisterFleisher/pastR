@@ -8,9 +8,9 @@ An language that transpiles to R.
 Let's face it.  R looks ugly.  It hurts your eyes.  Some features can be a bit verbose or overly confusing.  Official R hasn't really changed in the last 20 years.  Some things need the tiniest changes.  It could use a couple tweaks:
 
 1) piping
-2) shorten '```function```' to ```fn```
+2) shorten ```function``` to ```fn```
 3) combine all ```apply``` functions, don't get rid of the old ones.  
-4) ```v()``` for vector. Don't get rid of 'c()'.
+4) ```v()``` for vector. Don't get rid of ```c()```.
 5) transpile statements to data.table syntax
 
 
